@@ -16,6 +16,10 @@ class Feedback(models.Model):
     user_id = models.CharField(max_length=120,null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     body = models.CharField(max_length=120, null=True, blank=True)
+    body1 = models.CharField(max_length=120, null=True, blank=True)
+    body2 = models.CharField(max_length=120, null=True, blank=True)
+    body3 = models.CharField(max_length=120, null=True, blank=True)
+    body4 = models.CharField(max_length=120, null=True, blank=True)
     
     
     def __str__(self):

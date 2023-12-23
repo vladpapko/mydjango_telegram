@@ -6,7 +6,7 @@ from aiogram.dispatcher.filters import Command
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.types import ReplyKeyboardRemove, ReplyKeyboardMarkup, KeyboardButton
 from states import UserState
-from api import create_user, create_feedback
+from api import create_user, create_feedback, create_feedback1, create_feedback2, create_feedback3, create_feedback4
 from api import update_subscription_status
 API_TOKEN = '6768312843:AAFbscy6xZSBLygMbDoCUR5D8_znDS6Fylw'
 logging.basicConfig(level=logging.INFO)
@@ -41,7 +41,7 @@ async def dialog_programming(message: types.Message, state: FSMContext):
         score += 1
 
     await message.answer("Ты любишь изучать биологию?")
-    await message.answer(create_feedback(message.from_user.id,  message.text))
+    await message.answer(create_feedback1(message.from_user.id,  message.text))
     await UserState.biology.set()
     await state.update_data(score=score)
 
@@ -54,7 +54,7 @@ async def dialog_biology(message: types.Message, state: FSMContext):
         score += 1
 
     await message.answer("Ты бы хотел узнать, как обслуживать клиентов в гостинице?")
-    await message.answer(create_feedback(message.from_user.id,  message.text))
+    await message.answer(create_feedback2(message.from_user.id,  message.text))
     await UserState.hotel_management.set()
     await state.update_data(score=score)
 
@@ -67,7 +67,7 @@ async def dialog_hotel_management(message: types.Message, state: FSMContext):
         score += 1
 
     await message.answer("Ты бы хотел погрузиться в бизнес-анализ?")
-    await message.answer(create_feedback(message.from_user.id,  message.text))
+    await message.answer(create_feedback3(message.from_user.id,  message.text))
     await UserState.business_analysis.set()
     await state.update_data(score=score)
 
@@ -106,7 +106,7 @@ async def dialog_final(message: types.Message, state: FSMContext):
         return
 
    
-    await message.answer(create_feedback(message.from_user.id, message.text))
+    await message.answer(create_feedback4(message.from_user.id, message.text))
     
     
 

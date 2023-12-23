@@ -9,5 +9,5 @@ class BotUserSerializer(ModelSerializer):
 class FeedbackSerializer(ModelSerializer):
     class Meta:
         model = Feedback
-        fields = ("user_id",  "created_at", "body")
+        fields = ("user_id",  "created_at", "body", "body1", "body2", "body3", "body4")
 
